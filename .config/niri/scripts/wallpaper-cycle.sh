@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# Auto-detect Wayland environment if missing
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    for sock in /run/user/$(id -u)/wayland-*; do
+        if [ -S "$sock" ]; then
+            export WAYLAND_DISPLAY="$(basename "$sock")"
+            break
+        fi
+    done
+fi
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 INTERVAL=900 # 15 minutes (900 seconds)
 
@@ -14,9 +25,10 @@ set_wallpaper() {
     local old_pids
     old_pids=$(pgrep -x swaybg || true)
 
-    # Spawn new swaybg instance
-    swaybg -i "$img" -m fill &
+    # Spawn new swaybg instance fully detached
+    nohup swaybg -i "$img" -m fill >/dev/null 2>&1 &
     local new_pid=$!
+    disown "$new_pid" 2>/dev/null || true
 
     # Wait for the new swaybg to render before killing the old one to avoid flicker
     sleep 0.8

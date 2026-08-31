@@ -69,6 +69,13 @@ cp -n "$DOTFILES_DIR/wallpapers/"* "$HOME/Pictures/Wallpapers/" 2>/dev/null || t
 echo "==> Setting executable permissions on scripts..."
 chmod +x "$HOME/.config/niri/scripts/"*.sh
 
+# 6. Install & enable systemd wallpaper service
+echo "==> Configuring dynamic wallpaper service..."
+mkdir -p "$HOME/.config/systemd/user"
+cp "$DOTFILES_DIR/.config/systemd/user/wallpaper-cycle.service" "$HOME/.config/systemd/user/"
+systemctl --user daemon-reload || true
+systemctl --user enable --now wallpaper-cycle.service || true
+
 echo
 echo "================================================="
 echo "   Installation Completed Successfully!          "
