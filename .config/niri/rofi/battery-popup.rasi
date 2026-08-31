@@ -1,0 +1,89 @@
+configuration {
+    font: "0xProto Nerd Font 10";
+    show-icons: false;
+    disable-history: true;
+    click-to-exit: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+* {
+    bg-col:       #0d0f18f2;
+    bg-col-light: #161925;
+    border-col:   #00f0ff;
+    pink:         #ff007f;
+    yellow:       #fcee0a;
+    fg-col:       #e2e8f0;
+    
+    background-color: transparent;
+    text-color:       @fg-col;
+    margin:           0px;
+    padding:          0px;
+}
+
+window {
+    width:            420px;
+    location:         north east;
+    anchor:           north east;
+    x-offset:         -10px;
+    y-offset:         36px;
+    border:           2px;
+    border-color:     @border-col;
+    border-radius:    6px;
+    background-color: @bg-col;
+    padding:          12px;
+}
+
+inputbar {
+    enabled:          true;
+    padding:          0px 0px 8px 0px;
+    children:         [ "prompt" ];
+}
+
+prompt {
+    font:             "0xProto Nerd Font Bold 11";
+    text-color:       @yellow;
+    padding:          6px 10px;
+    background-color: @bg-col-light;
+    border:           1px;
+    border-color:     @pink;
+    border-radius:    4px;
+}
+
+listview {
+    lines:            12;
+    columns:          1;
+    fixed-height:     false;
+    scrollbar:        false;
+    spacing:          4px;
+    padding:          6px 0px 0px 0px;
+}
+
+element {
+    padding:          6px 10px;
+    border-radius:    4px;
+    background-color: transparent;
+    text-color:       @fg-col;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       @fg-col;
+}
+
+element selected.normal {
+    background-color: @bg-col-light;
+    text-color:       @yellow;
+    border:           1px;
+    border-color:     @pink;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg-col;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+}

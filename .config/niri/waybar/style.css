@@ -1,0 +1,168 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "0xProto Nerd Font", "JetBrains Mono", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+window#waybar {
+    background-color: rgba(10, 11, 18, 0.92);
+    border-bottom: 2px solid #00f0ff;
+    box-shadow: 0 2px 14px rgba(0, 240, 255, 0.35);
+    color: #e2e8f0;
+}
+
+/* System Menu (Apple/Distro Logo) */
+#custom-apple {
+    font-size: 15px;
+    padding: 0 10px 0 12px;
+    color: #ff007f;
+    transition: all 0.2s ease;
+}
+
+#custom-apple:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 8px #00f0ff;
+}
+
+/* Active Application Name */
+#window {
+    padding: 0 12px 0 2px;
+    color: #00f0ff;
+    font-weight: 800;
+    text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+}
+
+/* Workspaces / Desktops */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 7px;
+    color: #5b6078;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    color: #fcee0a;
+    font-weight: 900;
+    text-shadow: 0 0 8px rgba(252, 238, 10, 0.6);
+    border-bottom: 2px solid #ff007f;
+}
+
+#workspaces button:hover {
+    color: #ff007f;
+    text-shadow: 0 0 6px #ff007f;
+}
+
+/* Center Media (Now Playing) */
+#mpris {
+    padding: 0 10px;
+    color: #ff007f;
+    font-weight: 700;
+    text-shadow: 0 0 6px rgba(255, 0, 127, 0.35);
+}
+
+#mpris:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 8px #00f0ff;
+}
+
+/* Status Icons (Right Side) */
+#privacy,
+#tray,
+#wireplumber,
+#network,
+#battery,
+#custom-controlcenter,
+#clock {
+    padding: 0 8px;
+    color: #e2e8f0;
+    background: transparent;
+}
+
+/* Privacy Dot / Indicator */
+#privacy,
+#privacy-item.audio-in {
+    color: #ff0055;
+    text-shadow: 0 0 6px #ff0055;
+}
+
+#privacy-item.screenshare {
+    color: #fcee0a;
+}
+
+/* Audio & Network */
+#wireplumber:hover,
+#network:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 8px #00f0ff;
+}
+
+#wireplumber.muted {
+    color: #5b6078;
+}
+
+#network.disconnected {
+    color: #ff0055;
+    text-shadow: 0 0 6px #ff0055;
+}
+
+/* Battery */
+#battery {
+    color: #00ff9f;
+}
+
+#battery:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 8px #00f0ff;
+}
+
+#battery.charging {
+    color: #fcee0a;
+    text-shadow: 0 0 8px rgba(252, 238, 10, 0.5);
+}
+
+#battery.warning:not(.charging) {
+    color: #ff8800;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff0055;
+    text-shadow: 0 0 10px #ff0055;
+}
+
+/* Control Center Icon */
+#custom-controlcenter {
+    font-size: 14px;
+    color: #00f0ff;
+}
+
+#custom-controlcenter:hover {
+    color: #ff007f;
+    text-shadow: 0 0 8px #ff007f;
+}
+
+/* Date & Time */
+#clock {
+    padding: 0 12px 0 6px;
+    font-weight: 800;
+    color: #fcee0a;
+    text-shadow: 0 0 6px rgba(252, 238, 10, 0.4);
+}
+
+#clock:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 8px #00f0ff;
+}
+
+/* Tray */
+#tray {
+    padding: 0 4px;
+}

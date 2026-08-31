@@ -1,0 +1,30 @@
+# Font
+font-family = 0xProto Nerd Font
+font-size = 12
+
+# KDE / Wayland Window Decorations
+# 'server' uses native KDE KWin Breeze titlebar, borders, and minimize/maximize/close buttons
+window-decoration = server
+
+# Theme & Colors
+theme = Cyberpunk
+window-theme = dark
+
+# Window Padding & Aesthetics
+window-padding-x = 10
+window-padding-y = 10
+background-opacity = 0.88
+
+# Disable daemon mode to avoid stale single-instance sessions in KDE
+gtk-single-instance = false
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+
+# Keybindings
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+t=new_tab
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size

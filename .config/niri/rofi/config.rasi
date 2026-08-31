@@ -1,0 +1,132 @@
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    terminal: "ghostty";
+    drun-display-format: "{icon} {name}";
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "󰣇 Apps";
+    display-run: " Run";
+    display-window: " Windows";
+    sidebar-mode: true;
+    click-to-exit: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+* {
+    bg-col:                      #0d0f18f2;
+    bg-col-light:                #161925;
+    border-col:                  #00f0ff;
+    selected-col:                #ff007f;
+    cyan:                        #00f0ff;
+    pink:                        #ff007f;
+    yellow:                      #fcee0a;
+    fg-col:                      #e2e8f0;
+    grey:                        #5b6078;
+
+    font:                        "0xProto Nerd Font 11";
+    background-color:            transparent;
+    text-color:                  @fg-col;
+    margin:                      0px;
+    padding:                     0px;
+}
+
+window {
+    width:                       640px;
+    background-color:            @bg-col;
+    border:                      2px;
+    border-color:                @border-col;
+    border-radius:               6px;
+    padding:                     16px;
+}
+
+mainbox {
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview", "mode-switcher" ];
+    spacing:                     12px;
+}
+
+inputbar {
+    children:                    [ "prompt", "entry" ];
+    background-color:            @bg-col-light;
+    border-radius:               4px;
+    padding:                     8px 12px;
+    border:                      1px;
+    border-color:                @pink;
+    spacing:                     8px;
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @yellow;
+}
+
+entry {
+    background-color:            transparent;
+    text-color:                  @fg-col;
+    placeholder:                 "Search applications...";
+    placeholder-color:           @grey;
+}
+
+listview {
+    border:                      0px;
+    background-color:            transparent;
+    columns:                     1;
+    lines:                       7;
+    spacing:                     4px;
+}
+
+element {
+    padding:                     8px 12px;
+    background-color:            transparent;
+    text-color:                  @fg-col;
+    border-radius:               4px;
+    spacing:                     8px;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @fg-col;
+}
+
+element selected.normal {
+    background-color:            @bg-col-light;
+    text-color:                  @yellow;
+    border:                      1px;
+    border-color:                @pink;
+}
+
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @fg-col;
+}
+
+element-icon {
+    size:                        20px;
+    background-color:            transparent;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+}
+
+mode-switcher {
+    spacing:                     10px;
+}
+
+button {
+    padding:                     6px 12px;
+    background-color:            @bg-col-light;
+    text-color:                  @grey;
+    border-radius:               4px;
+}
+
+button selected {
+    background-color:            #ff007f33;
+    text-color:                  @cyan;
+    border:                      1px;
+    border-color:                @cyan;
+}

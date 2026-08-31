@@ -1,0 +1,138 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+
+    // Left Side: macOS-style System Menu & App Title + Desktops
+    "modules-left": [
+        "custom/apple",
+        "niri/window",
+        "niri/workspaces"
+    ],
+
+    // Center: Compact Now Playing
+    "modules-center": [
+        "mpris"
+    ],
+
+    // Right Side: Status Items + Unified Control Center + Clock
+    "modules-right": [
+        "privacy",
+        "tray",
+        "network",
+        "wireplumber",
+        "battery",
+        "custom/controlcenter",
+        "clock"
+    ],
+
+    // --- SYSTEM MENU (APPLE ICON) ---
+    "custom/apple": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "~/.config/niri/scripts/apple-menu.sh"
+    },
+
+    // --- APP TITLE (MAC APP MENU) ---
+    "niri/window": {
+        "format": "<b>{title}</b>",
+        "max-length": 30,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "Firefox",
+            "(.*) - Ghostty": "Ghostty",
+            "^$": "Finder"
+        }
+    },
+
+    // --- DESKTOPS / WORKSPACES ---
+    "niri/workspaces": {
+        "format": "{index}",
+        "format-active": "<b>{index}</b>"
+    },
+
+    // --- NOW PLAYING (MPRIS) ---
+    "mpris": {
+        "format": "󰎆 {title} - {artist}",
+        "format-paused": "󰏤 <i>{title}</i>",
+        "max-length": 35,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next"
+    },
+
+    // --- PRIVACY INDICATORS ---
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 11,
+        "transition-duration": 200,
+        "modules": [
+            { "type": "screenshare", "tooltip": true },
+            { "type": "audio-in", "tooltip": true }
+        ]
+    },
+
+    // --- SOUND / VOLUME ---
+    "wireplumber": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "tooltip-format": "Volume: {volume}%\nClick to mute, Scroll to adjust",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    // --- WI-FI STATUS ---
+    "network": {
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\nClick to manage Wi-Fi",
+        "on-click": "~/.config/niri/scripts/wifi-menu.sh"
+    },
+
+    // --- BATTERY ---
+    "battery": {
+        "interval": 5,
+        "states": { "warning": 25, "critical": 15 },
+        "format": "{icon} {capacity}%",
+        "format-charging": "⚡ {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{capacity}% ({time})\nClick for battery details",
+        "on-click": "~/.config/niri/scripts/battery-popup.sh"
+    },
+
+    // --- MAC CONTROL CENTER ---
+    "custom/controlcenter": {
+        "format": "󰕮",
+        "tooltip": false,
+        "on-click": "~/.config/niri/scripts/control-center.sh"
+    },
+
+    // --- DATE & TIME ---
+    "clock": {
+        "interval": 1,
+        "format": "{:%a %d %b  %H:%M}",
+        "format-alt": "{:%Y-%m-%d  %H:%M:%S}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "right",
+            "format": {
+                "months": "<span color='#ff007f'><b>{}</b></span>",
+                "days": "<span color='#e2e8f0'>{}</span>",
+                "weeks": "<span color='#9d4edd'><b>W{}</b></span>",
+                "weekdays": "<span color='#00f0ff'><b>{}</b></span>",
+                "today": "<span color='#fcee0a'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    // --- APP INDICATORS / TRAY ---
+    "tray": {
+        "icon-size": 13,
+        "spacing": 6
+    }
+}
